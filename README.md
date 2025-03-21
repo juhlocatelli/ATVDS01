@@ -22,7 +22,7 @@ public class Main{
          scanner.nextLine();
         // Criar produto de acordo com o que for digitado
         switch (op) {
-            case 1:   
+            case 1:   //Criação de produto
             System.out.print("Digite o ID do produto:");
             int ID = scanner.nextInt();
             scanner.nextLine();
@@ -70,7 +70,7 @@ public class Main{
                 break;
 
 
-            case 2:
+            case 2://Alteração de dados 
             if (listaProdutos.isEmpty()) { // Verifica se a lista está Vazia
                 System.out.print("Não há nenhum produto");
                 System.out.println("\nPressione Enter para voltar ao menu...");
@@ -129,7 +129,7 @@ public class Main{
             scanner.nextLine();
             break;
 
-            case 3:
+            case 3://Exclua um produto
             if (listaProdutos.isEmpty()) {  //! Verifica se a lista está Vazia
                 System.out.print("Não há nenhum produto");
                 System.out.println("\nPressione Enter para voltar ao menu...");
@@ -158,7 +158,7 @@ public class Main{
             System.out.print("Você tem certeza que quer excluir esse produto? (S/N)");
             char Confirmação = scanner.next().charAt(0);
 
-            if (Confirmação == 'S' || Confirmação == 's') { // Exclusão
+            if (Confirmação == 'S' || Confirmação == 's') { // Exclusão deproduto
                 listaProdutos.remove(produtoEncontrado);
                 System.out.print("Produto excluido com sucesso!!");
                 System.out.println("\nPressione Enter para voltar ao menu...");
@@ -173,7 +173,7 @@ public class Main{
                 break;
             }
 
-            case 4:
+            case 4://listagem de produtos
             if (listaProdutos.isEmpty()) {
                 System.out.print("Não há nenhum produto"); // Caso não tenha produto na lista
                 System.out.println("\nPressione Enter para voltar ao menu...");
@@ -190,7 +190,7 @@ public class Main{
             scanner.nextLine();
             break;
 
-            case 5:
+            case 5://Saída
                 System.out.println("Saindo...."); 
                 break;
 
@@ -198,7 +198,7 @@ public class Main{
             System.out.println("Opção inválida! Tente novamente.");
         }
   
-    } while(op != 5); 
+    } while(op != 5); //garante que o código será executado até que o usuário escolha 5 que é a saída
         scanner.close();
     }
 }
