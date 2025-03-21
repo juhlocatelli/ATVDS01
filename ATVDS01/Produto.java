@@ -1,34 +1,30 @@
 package Produto;
 
 public class Produto {
-    // Atributos do objeto
+
     private int Id;
     private String Nome;
     private String Preco;
     private String Tipo;
     private String Descricao;
     
-   //Construtores:
-   public Produto(){ //! Construtor Padrão (Sem parametros)
-        this.Id = 0;//! O Id é uma variável inteira e vazia, por isso o 0
+   public Produto(){ 
+        this.Id = 0;
         this.Nome = "";
         this.Preco = "";
         this.Descricao = "";
         this.Tipo = "";
-    } // Permite criar um produto vazio e definir os valores depois usando os setters. 
-   // Útil quando você não tem todas as informações no momento da criação do objeto. 
+    } 
 
-    public Produto(int Id, String Nome, String Preco){ //* Construtor com ID, Nome e Preço */
+    public Produto(int Id, String Nome, String Preco){ 
         this.Id = Id;
         this.Nome = Nome;
         this.Preco = Preco;
         this.Tipo = "Não definido";
         this.Descricao = "Não definido";
-    } // Permite cadastrar um produto sem precisar definir Tipo e Função no momento.
-      //Evita obrigar o usuário a preencher informações que podem ser desconhecidas no início.
-     // Define valores padrão ("Não definido") para os campos opcionais.
+    } 
 
-    public Produto(int Id, String Nome, String Tipo, String Funcao, String Preco){ // Construtor completo
+    public Produto(int Id, String Nome, String Tipo, String Funcao, String Preco){ 
         this.Nome = Nome;
         this.Id = Id;
         this.Preco = Preco;
@@ -37,8 +33,7 @@ public class Produto {
         
     }
 
-    //Definindo retornos com o get
-    public int getId(){//* Como estes objetos estão privados, eles não podem ser acessados sem o get */
+    public int getId(){
         return Id;
     }
 
@@ -58,7 +53,6 @@ public class Produto {
         return Preco;
     }
 
-    //Colocar um valor nos atributos com o set
     public void setId(int Id){
         this.Id = Id;
     }
@@ -79,7 +73,6 @@ public class Produto {
         this.Preco = Preco;
     }
     
-    //Função que mostra todos os atributos do produto
     public void exibirProduto() { 
         System.out.println("\nID: " + Id);
         System.out.println("Nome: " + Nome);
