@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 public class Main{
     public static void main(String[] args ) {
-        //Definindo scanner para o usuário poder digitar
         Scanner scanner = new Scanner(System.in);
         ArrayList <Produto> listaProdutos = new ArrayList<>();
         int op;
@@ -18,7 +17,7 @@ public class Main{
             System.out.print("O que deseja fazer: ");
          op = scanner.nextInt();
          scanner.nextLine();
-        // Criar produto de acordo com o que for digitado
+        
         switch (op) {
             case 1:   
             System.out.print("Digite o ID do produto:");
@@ -35,31 +34,31 @@ public class Main{
         do{ 
 
             System.out.print("Deseja definir o Tipo e a Descrição do produto agora? (S/N):"); 
-            Escolha = scanner.next().charAt(0);//Armazana aqui a escolha do usuário
+            Escolha = scanner.next().charAt(0);
             scanner.nextLine();
 
-            if (Escolha != 'S' && Escolha != 's' && Escolha != 'N' && Escolha != 'n') { // Vai verificar se a pessoa quer ou não definir os produtos
+            if (Escolha != 'S' && Escolha != 's' && Escolha != 'N' && Escolha != 'n') { 
                 System.out.println("Opção inválida! Digite 'S' para sim ou 'N' para não.");
 
         }
-    }  while (Escolha != 'S' && Escolha != 's' && Escolha != 'N' && Escolha != 'n'); //! Ele vai repetir o comando de cima até tiver tudo certo, ai ele vai pra proxima etapa
+    }  while (Escolha != 'S' && Escolha != 's' && Escolha != 'N' && Escolha != 'n'); 
             
                 Produto novoProduto = null;
 
-                if (Escolha == 'S' || Escolha == 's') { //coloca, se a resposta for sim, a tipo e uma descrição
+                if (Escolha == 'S' || Escolha == 's') { 
                     System.out.print("Digite o Tipo do produto:");
                     String Tipo = scanner.nextLine();
                     System.out.print("Digite a Descrição do produto:");
                     String Descricao = scanner.nextLine();
 
                     novoProduto = new Produto(ID, Nome, Tipo, Descricao, Preco); 
-                    // Cadastro de novo produto
+                   
                 }
 
                 if(Escolha == 'n' || Escolha == 'N') {
-                    novoProduto = new Produto(ID, Nome, Preco); //? Vai cadastrar sem descrição e tipo
+                    novoProduto = new Produto(ID, Nome, Preco); 
                 }
-                    listaProdutos.add(novoProduto); // Adiciona a lista de Produtos/arrays
+                    listaProdutos.add(novoProduto); 
                     System.out.print("Produto Cadastrado com sucesso!!");
 
                 System.out.println("\nPressione Enter para voltar ao menu...");
@@ -68,7 +67,7 @@ public class Main{
 
 
             case 2:
-            if (listaProdutos.isEmpty()) { // Verifica se a lista está Vazia
+            if (listaProdutos.isEmpty()) { 
                 System.out.print("Não há nenhum produto");
                 System.out.println("\nPressione Enter para voltar ao menu...");
                 scanner.nextLine();
@@ -83,18 +82,18 @@ public class Main{
             Produto produtoEncontrado = null;
             for(Produto P : listaProdutos){ 
                 if (P.getId() == IdBuscador) {
-                    produtoEncontrado = P; //Caso ele Encontre vai ficar na variavel produtoEncontrado
+                    produtoEncontrado = P; 
                     break;
                 }
             }
 
             if (produtoEncontrado == null) {
-               System.out.print("Produto não encontrado!");  // Se ele não achar, ele vai retornar pro Menu
+               System.out.print("Produto não encontrado!");  
                break;
             }
 
             System.out.print("Produto Encontrado!!");
-            produtoEncontrado.exibirProduto(); // Vai mostrar o Produto, pra pessoa verificar se é o produto certo
+            produtoEncontrado.exibirProduto(); 
 
             System.out.print("\nNovo nome (ou pressione ENTER para manter): ");
             String novoNome = scanner.nextLine();
@@ -127,7 +126,7 @@ public class Main{
             break;
 
             case 3:
-            if (listaProdutos.isEmpty()) {  //! Verifica se a lista está Vazia
+            if (listaProdutos.isEmpty()) { 
                 System.out.print("Não há nenhum produto");
                 System.out.println("\nPressione Enter para voltar ao menu...");
                 scanner.nextLine();
@@ -155,7 +154,7 @@ public class Main{
             System.out.print("Você tem certeza que quer excluir esse produto? (S/N)");
             char Confirmação = scanner.next().charAt(0);
 
-            if (Confirmação == 'S' || Confirmação == 's') { // Exclusão
+            if (Confirmação == 'S' || Confirmação == 's') { 
                 listaProdutos.remove(produtoEncontrado);
                 System.out.print("Produto excluido com sucesso!!");
                 System.out.println("\nPressione Enter para voltar ao menu...");
@@ -172,14 +171,14 @@ public class Main{
 
             case 4:
             if (listaProdutos.isEmpty()) {
-                System.out.print("Não há nenhum produto"); // Caso não tenha produto na lista
+                System.out.print("Não há nenhum produto"); 
                 System.out.println("\nPressione Enter para voltar ao menu...");
                 scanner.nextLine();
                 break;
             }
 
             System.out.println("\n=== Lista de Produtos ===");
-            for(Produto p:listaProdutos){ //todos os produtos da lista 
+            for(Produto p:listaProdutos){
                 p.exibirProduto();
             }
 
